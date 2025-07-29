@@ -1,0 +1,22 @@
+version: "3"
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8000:8000"
+    environment:
+      - VERIFY_TOKEN=godsource_secret
+      - META_TOKEN=SEU_TOKEN_META
+      - PHONE_NUMBER_ID=SEU_ID
+      - OPENAI_API_KEY=SUA_KEY_OPENAI
+    volumes:
+      - ./backend/src:/app/src
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
