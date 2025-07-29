@@ -1,24 +1,24 @@
+import React from "react";
 import { useState } from "react";
 
 export default function DashboardHome() {
-  const [step, setStep] = useState(0);
-  const etapas = [
-    "Bem-vindo à GODSOURCE V∞ Marketing AI!",
-    "Converse comigo aqui mesmo para criar campanhas, enviar mídia, ou pedir relatórios.",
-    "Clique em 'Nova Campanha' ou mande um comando no chat.",
-    "Para WhatsApp/Meta: conecte sua conta usando o botão de integração no menu (ou envie 'integrar whatsapp' no chat).",
-    "Pronto! Só conversar. Eu faço todo o resto: criativos, análises, disparos automáticos, otimização e exportação.",
-  ];
   return (
-    <div className="max-w-xl mx-auto bg-gray-800 p-8 rounded-xl mt-10 text-center">
-      <h2 className="text-2xl font-bold mb-4">Onboarding Rápido 🚀</h2>
-      <p className="mb-8">{etapas[step]}</p>
-      <button
-        className="bg-green-600 px-4 py-2 rounded font-bold"
-        onClick={() => setStep((s) => (s < etapas.length - 1 ? s + 1 : 0))}
-      >
-        {step < etapas.length - 1 ? "Próximo" : "Rever"}
-      </button>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 p-8 rounded-2xl shadow-lg">
+        <h2 className="text-2xl font-bold text-white mb-2">Campanhas Ativas</h2>
+        <p className="text-4xl font-extrabold">7</p>
+        <span className="text-blue-300">Rodando agora</span>
+      </div>
+      <div className="bg-gradient-to-br from-purple-900 via-purple-800 to-purple-700 p-8 rounded-2xl shadow-lg">
+        <h2 className="text-2xl font-bold text-white mb-2">Leads Capturados</h2>
+        <p className="text-4xl font-extrabold">312</p>
+        <span className="text-purple-300">+8% hoje</span>
+      </div>
+      <div className="bg-gradient-to-br from-pink-900 via-pink-800 to-pink-700 p-8 rounded-2xl shadow-lg">
+        <h2 className="text-2xl font-bold text-white mb-2">Conversões</h2>
+        <p className="text-4xl font-extrabold">55</p>
+        <span className="text-pink-300">em 24h</span>
+      </div>
     </div>
   );
 }

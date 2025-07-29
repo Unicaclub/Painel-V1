@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Request
-from ia_personas import ia_vendedor, ia_suporte, ia_promoter
+from .ia_personas import ia_vendedor, ia_suporte, ia_promoter
 import requests
 import openai
 import os
@@ -48,9 +48,7 @@ def processa_resposta(text):
         return ia_promoter(text)
     # Padrão: Promoter (ou escolha)
     return ia_promoter(text)
-    except Exception as e:
-        print("Erro GPT:", e)
-        return "Desculpe, estou indisponível para responder agora. Tente novamente em instantes."
+
 
 def send_whatsapp_message(to, message):
     url = f"https://graph.facebook.com/v18.0/{PHONE_NUMBER_ID}/messages"

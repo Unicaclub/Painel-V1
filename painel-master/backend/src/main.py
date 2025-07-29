@@ -3,10 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from src.webhook import router as webhook_router
 
+app = FastAPI()
 
 app.include_router(webhook_router)
 
-app = FastAPI()
+
 
 app.add_middleware(
     CORSMiddleware,
